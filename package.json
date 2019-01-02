@@ -1,0 +1,36 @@
+{
+  "name": "study-multi-target-todolist-domain",
+  "description": ":microscope: Studying the reuse of core todolist domain functions in multiple \"end\" targets",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "build": "lerna run --stream build",
+    "lint": "lerna run --stream --parallel lint",
+    "test_coverage": "lerna run --stream --parallel test -- --coverage",
+    "test": "lerna run --stream --parallel test"
+  },
+  "devDependencies": {
+    "lerna": "^3.4.3",
+    "prettier": "^1.15.2",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.16.0",
+    "tslint-immutable": "^5.0.1",
+    "typescript": "^3.1.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/douglasduteil/study-multi-target-todolist-domain.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/douglasduteil/study-multi-target-todolist-domain/issues"
+  },
+  "homepage": "https://github.com/douglasduteil/study-multi-target-todolist-domain#readme",
+  "workspaces": [
+    "packages/*",
+    "targets/*/*"
+  ]
+}

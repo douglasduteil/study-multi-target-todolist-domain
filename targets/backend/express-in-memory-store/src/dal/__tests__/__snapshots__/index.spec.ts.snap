@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#addTodo should return list of todos 1`] = `
+Object {
+  "completed": false,
+  "id": "foo-123-bar",
+  "title": "Hello World",
+}
+`;
+
+exports[`#addTodo should return list of todos 2`] = `
+Array [
+  Object {
+    "completed": false,
+    "id": "foo-123-bar",
+    "title": "Hello World",
+  },
+]
+`;
+
+exports[`#findTodo should return todo@bar-123-foo 1`] = `
+Object {
+  "completed": false,
+  "id": "bar-123-foo",
+  "title": "Hello World",
+}
+`;
+
+exports[`#findTodo should return todo@bar-123-foo 2`] = `
+Array [
+  Object {
+    "completed": true,
+    "id": "foo-123-bar",
+    "title": "Hello World",
+  },
+  Object {
+    "completed": false,
+    "id": "bar-123-foo",
+    "title": "Hello World",
+  },
+  Object {
+    "completed": false,
+    "id": "123-foo-bar",
+    "title": "Hello World",
+  },
+]
+`;
+
+exports[`#removeTodo should return list of todos 1`] = `
+Object {
+  "completed": false,
+  "id": "bar-123-foo",
+  "title": "Hello World",
+}
+`;
+
+exports[`#removeTodo should return list of todos 2`] = `
+Array [
+  Object {
+    "completed": true,
+    "id": "foo-123-bar",
+    "title": "Hello World",
+  },
+  Object {
+    "completed": false,
+    "id": "123-foo-bar",
+    "title": "Hello World",
+  },
+]
+`;
+
+exports[`#updateTodo should mark as completed todo@bar-123-foo 1`] = `
+Object {
+  "completed": true,
+  "id": "bar-123-foo",
+  "title": "Hello World",
+}
+`;
+
+exports[`#updateTodo should mark as completed todo@bar-123-foo 2`] = `
+Array [
+  Object {
+    "completed": true,
+    "id": "foo-123-bar",
+    "title": "Hello World",
+  },
+  Object {
+    "completed": true,
+    "id": "bar-123-foo",
+    "title": "Hello World",
+  },
+  Object {
+    "completed": false,
+    "id": "123-foo-bar",
+    "title": "Hello World",
+  },
+]
+`;

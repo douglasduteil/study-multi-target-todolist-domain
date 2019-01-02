@@ -1,0 +1,27 @@
+{
+  "name": "@todolist.databases/in-memory",
+  "description": "The in memory todolist database",
+  "version": "1.0.0",
+  "private": true,
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "todolist-scripts build",
+    "lint": "todolist-scripts lint",
+    "test": "todolist-scripts test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@~todolist/scripts": "^6.6.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/douglasduteil/study-multi-target-todolist-domain.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/douglasduteil/study-multi-target-todolist-domain/issues"
+  },
+  "homepage": "https://github.com/douglasduteil/study-multi-target-todolist-domain#readme"
+}

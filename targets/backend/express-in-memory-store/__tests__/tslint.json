@@ -1,0 +1,7 @@
+{
+  "extends": "../tslint.json",
+  "rules": {
+    "no-implicit-dependencies": [true, "dev", ["src"]],
+    "no-submodule-imports": [true, ["src"]]
+  }
+}
