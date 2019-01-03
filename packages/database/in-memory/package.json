@@ -5,13 +5,18 @@
   "private": true,
   "main": "lib/index.js",
   "scripts": {
-    "build": "todolist-scripts build",
-    "lint": "todolist-scripts lint",
-    "test": "todolist-scripts test"
+    "build": "tsc",
+    "lint": "tslint -p tsconfig.json -t stylish",
+    "test": "jest",
+    "watch": "tsc --watch --preserveWatchOutput"
   },
   "dependencies": {},
   "devDependencies": {
-    "@~todolist/scripts": "^6.6.6"
+    "@types/jest": "^23.3.11",
+    "jest": "^23.6.0",
+    "ts-jest": "^23.10.5",
+    "tslint": "^5.12.0",
+    "typescript": "^3.2.2"
   },
   "repository": {
     "type": "git",

@@ -10,27 +10,30 @@
   "scripts": {
     "build": "ncc build ./src/index.ts -o dist",
     "lint": "tslint -p tsconfig.json -t stylish",
-    "integration": "jest --config integration/jest.config.js --maxWorkers=2",
+    "integration": "jest --config integration/jest.config.js",
     "test": "jest"
   },
   "dependencies": {
-    "@todolist/core": "^1.0.0"
+    "@todolist/core": "^1.0.0",
+    "@types/ramda": "^0.25.46",
+    "ramda": "^0.26.1"
   },
   "devDependencies": {
     "@types/execa": "^0.9.0",
     "@types/fs-extra": "^5.0.4",
-    "@types/jest": "^23.3.9",
+    "@types/jest": "^23.3.11",
     "@types/tempy": "^0.2.0",
-    "@types/yargs": "^12.0.4",
+    "@types/yargs": "^12.0.5",
     "@zeit/ncc": "^0.8.1",
     "chokidar": "^2.0.4",
     "execa": "^1.0.0",
+    "fp-ts": "^1.12.2",
     "fs-extra": "^7.0.1",
     "jest": "^23.6.0",
     "tempy": "^0.2.1",
-    "ts-jest": "^23.10.4",
-    "tslint": "^5.11.0",
-    "typescript": "^3.1.6",
+    "ts-jest": "^23.10.5",
+    "tslint": "^5.12.0",
+    "typescript": "^3.2.2",
     "yargs": "^12.0.5"
   },
   "repository": {

@@ -1,3 +1,3 @@
 //
 
-export * from "./interfaces/todo";
+export * from "./models/todo";

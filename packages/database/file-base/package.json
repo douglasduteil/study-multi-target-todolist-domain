@@ -1,6 +1,6 @@
 {
-  "name": "@todolist/core",
-  "description": "The core todolist system",
+  "name": "@todolist.databases/file-base",
+  "description": "The file base todolist database",
   "version": "1.0.0",
   "private": true,
   "main": "lib/index.js",
@@ -11,8 +11,7 @@
     "watch": "tsc --watch --preserveWatchOutput"
   },
   "dependencies": {
-    "inversify": "^5.0.1",
-    "reflect-metadata": "^0.1.12"
+    "inversify": "^5.0.1"
   },
   "devDependencies": {
     "@types/jest": "^23.3.11",

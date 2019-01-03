@@ -8,15 +8,16 @@
     "build": "lerna run --stream build",
     "lint": "lerna run --stream --parallel lint",
     "test_coverage": "lerna run --stream --parallel test -- --coverage",
-    "test": "lerna run --stream --parallel test"
+    "test": "lerna run --stream --parallel test",
+    "watch": "lerna run --stream --parallel watch"
   },
   "devDependencies": {
-    "lerna": "^3.4.3",
-    "prettier": "^1.15.2",
-    "tslint": "^5.11.0",
-    "tslint-config-prettier": "^1.16.0",
+    "lerna": "^3.8.1",
+    "prettier": "^1.15.3",
+    "tslint": "^5.12.0",
+    "tslint-config-prettier": "^1.17.0",
     "tslint-immutable": "^5.0.1",
-    "typescript": "^3.1.6"
+    "typescript": "^3.2.2"
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,7 @@
   "homepage": "https://github.com/douglasduteil/study-multi-target-todolist-domain#readme",
   "workspaces": [
     "packages/*",
+    "packages/database/*",
     "targets/*/*"
   ]
 }
