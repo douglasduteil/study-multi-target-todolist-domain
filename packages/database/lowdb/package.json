@@ -1,6 +1,6 @@
 {
-  "name": "@todolist.databases/level",
-  "description": "The Level todolist database",
+  "name": "@todolist.databases/lowdb",
+  "description": "The Lowdb todolist database",
   "version": "1.0.0",
   "private": true,
   "main": "lib/index.js",
@@ -11,13 +11,12 @@
     "watch": "tsc --watch --preserveWatchOutput"
   },
   "dependencies": {
-    "leveldown": "^4.0.1",
-    "levelup": "^4.0.0"
+    "@todolist/core": "^1.0.0",
+    "lowdb": "^1.0.0"
   },
   "devDependencies": {
     "@types/jest": "^23.3.11",
-    "@types/leveldown": "^4.0.0",
-    "@types/levelup": "^3.1.0",
+    "@types/lowdb": "^1.0.6",
     "jest": "^23.6.0",
     "ts-jest": "^23.10.5",
     "tslint": "^5.12.0",

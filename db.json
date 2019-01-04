@@ -1,0 +1,12 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "lowdb is awesome"
+    }
+  ],
+  "count": 1,
+  "user": {
+    "name": "typicode"
+  }
+}
