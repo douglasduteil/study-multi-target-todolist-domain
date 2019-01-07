@@ -1,3 +1,0 @@
-//
-
-export { Database } from "./database";

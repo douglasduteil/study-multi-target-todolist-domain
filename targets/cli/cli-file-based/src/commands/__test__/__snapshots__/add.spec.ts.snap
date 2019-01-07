@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`builder should add list options to cli 1`] = `
+Array [
+  "foo add <options>
+
+Add Options
+  --done  Show private packages that are normally hidden
+                                                      [boolean] [default: false]
+
+Options:
+  --help     Show help                                                 [boolean]
+  --version  Show version number                                       [boolean]",
+]
+`;

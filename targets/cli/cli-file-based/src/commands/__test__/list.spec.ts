@@ -1,19 +1,19 @@
 //
 
 import yargs from "yargs";
-import { FilterOptions } from "../../core/list";
+import { ListOptions } from "../../core/list";
 import { builder, mapAliasOnOptions } from "../list";
 
 //
 
-const defaultArgv: FilterOptions = { all: false, json: false, long: false };
+const defaultArgv: ListOptions = { all: false, json: false, long: false };
 
 //
 
 describe("builder", () => {
   it("should add list options to cli", () => {
     const log = jest.fn();
-    builder(yargs.usage("foo list options")).showHelp(log as any);
+    builder(yargs.usage("foo list <options>")).showHelp(log as any);
     expect(log.mock.calls[0]).toMatchSnapshot();
   });
 });

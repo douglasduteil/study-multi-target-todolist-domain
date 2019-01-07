@@ -11,17 +11,21 @@
     "build": "ncc build ./src/index.ts -o dist",
     "lint": "tslint -p tsconfig.json -t stylish",
     "integration": "jest --config integration/jest.config.js",
-    "test": "jest"
+    "test": "jest",
+    "watch": "yarn build --watch"
   },
   "dependencies": {
     "@todolist/core": "^1.0.0",
-    "@types/ramda": "^0.25.46",
-    "ramda": "^0.26.1"
+    "@todolist.databases/lowdb": "^1.0.0",
+    "lowdb": "^1.0.0",
+    "ramda": "^0.26.1",
+    "tslib": "^1.9.3"
   },
   "devDependencies": {
     "@types/execa": "^0.9.0",
     "@types/fs-extra": "^5.0.4",
     "@types/jest": "^23.3.11",
+    "@types/ramda": "^0.25.46",
     "@types/tempy": "^0.2.0",
     "@types/yargs": "^12.0.5",
     "@zeit/ncc": "^0.8.1",

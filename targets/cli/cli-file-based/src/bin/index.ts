@@ -1,7 +1,9 @@
 //
 
+import { Database } from "@todolist.databases/lowdb";
 import { Todo } from "@todolist/core";
 import { Container, inject, injectable } from "inversify";
+import FileSync from "lowdb/adapters/FileSync";
 import complement from "ramda/es/complement";
 import cond from "ramda/es/cond";
 import filter from "ramda/es/filter";
@@ -13,7 +15,7 @@ import unless from "ramda/es/unless";
 import when from "ramda/es/when";
 import * as listCmd from "src/commands/list";
 import { todolistCli } from "src/core/cli";
-import { FilterOptions } from "src/core/list";
+import { ListOptions } from "src/core/list";
 import { Arguments } from "yargs";
 
 //
@@ -34,19 +36,13 @@ export function main(rawArgs: string[]): object {
     .command({
       ...listCmd,
       handler(args: listCmd.ListArguments): void {
-        const todos = [
-          {
-            completed: false,
-            createdAt: new Date(),
-            id: "42",
-            title: "foo",
-            updatedAt: new Date()
-          }
-        ];
+        const databases = new Database(
+          new FileSync(process.env.TODOLIST_DB || "./todo.json")
+        );
 
         const listFrom = dataFilterFn(args);
 
-        listFrom(todos);
+        listFrom(databases.getTodos());
       }
     })
     .parse(rawArgs);

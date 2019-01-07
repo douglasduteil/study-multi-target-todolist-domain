@@ -1,0 +1,10 @@
+{
+  "extends": "../../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "declaration": true,
+    "outDir": "lib",
+    "resolveJsonModule": true
+  },
+  "files": ["src/index.ts"]
+}

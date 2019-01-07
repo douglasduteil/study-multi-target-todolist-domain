@@ -33,6 +33,7 @@
   "workspaces": [
     "packages/*",
     "packages/database/*",
+    "packages/ui/*",
     "targets/*/*"
   ]
 }

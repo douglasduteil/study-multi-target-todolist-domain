@@ -1,0 +1,9 @@
+{
+  "extends": "../../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "out",
+    "resolveJsonModule": true
+  },
+  "files": ["src/index.ts"]
+}

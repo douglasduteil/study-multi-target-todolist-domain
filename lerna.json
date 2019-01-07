@@ -1,4 +1,9 @@
 {
-  "packages": ["packages/*", "packages/database/*", "targets/*/*"],
+  "packages": [
+    "packages/*",
+    "packages/database/*",
+    "packages/ui/*",
+    "targets/*/*"
+  ],
   "version": "0.0.0"
 }

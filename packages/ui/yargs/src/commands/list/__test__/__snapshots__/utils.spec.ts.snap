@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`"la" should activate "all" option 1`] = `
+Object {
+  "$0": "foo",
+  "_": Array [
+    "la",
+  ],
+  "all": true,
+  "json": false,
+  "long": false,
+}
+`;
+
+exports[`"ll" should activate "long" option 1`] = `
+Object {
+  "$0": "foo",
+  "_": Array [
+    "ll",
+  ],
+  "all": false,
+  "json": false,
+  "long": true,
+}
+`;
+
+exports[`"ls" do nothing 1`] = `
+Object {
+  "$0": "foo",
+  "_": Array [
+    "ls",
+  ],
+  "all": false,
+  "json": false,
+  "long": false,
+}
+`;
+
+exports[`should do nothing if no alias is given 1`] = `
+Object {
+  "$0": "foo",
+  "_": Array [],
+  "all": false,
+  "json": false,
+  "long": false,
+}
+`;
+
+exports[`should do nothing if the alias is not found 1`] = `
+Object {
+  "$0": "foo",
+  "_": Array [
+    "oof",
+  ],
+  "all": false,
+  "json": false,
+  "long": false,
+}
+`;

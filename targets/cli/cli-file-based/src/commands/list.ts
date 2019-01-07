@@ -2,7 +2,7 @@
 
 import { pipe } from "ramda";
 import { Arguments, Argv, Options } from "yargs";
-import { FilterOptions } from "../core/list";
+import { ListOptions } from "../core/list";
 
 //
 
@@ -14,49 +14,43 @@ export const describe = "List todos";
 // I didn't find how to make tsc happy without any-s here...
 // tslint:disable-next-line:typedef
 export function builder<T>(yargs: Argv<T>): Argv<any> {
-  return yargs
-    .options(yargsOptions)
-    .group(Object.keys(yargsOptions), "Filter Options:");
+  return yargs.options(yargsOptions).group(Object.keys(yargsOptions), group);
 }
 
 export const handler: (args: ListArguments) => void = pipe(mapAliasOnOptions);
 
 //
 
-export type ListArguments = Arguments<
-  { [key in keyof FilterOptions]: boolean }
->;
+export type ListArguments = Arguments<{ [key in keyof ListOptions]: boolean }>;
 export type Aliases = "ls" | "la" | "ll";
 
 //
 
+export const group = "List Options:";
 export const ALIASES_DEFAULT_OPTIONS: {
-  [key in Aliases]: Partial<FilterOptions>
+  [key in Aliases]: Partial<ListOptions>
 } = {
   la: { all: true },
   ll: { long: true },
   ls: {}
 };
 
-export const yargsOptions: { [key in keyof FilterOptions]: Options } = {
+export const yargsOptions: { [key in keyof ListOptions]: Options } = {
   all: {
     alias: "a",
     default: false,
-    describe: "Show private packages that are normally hidden",
-    group: "Command Options:",
+    describe: "Show done todos that are normally hidden",
     type: "boolean"
   },
   json: {
     default: false,
     describe: "Show information as a JSON array",
-    group: "Command Options:",
     type: "boolean"
   },
   long: {
     alias: "l",
     default: false,
     describe: "Show extended information",
-    group: "Command Options:",
     type: "boolean"
   }
 };

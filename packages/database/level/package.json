@@ -8,7 +8,7 @@
     "build": "tsc",
     "lint": "tslint -p tsconfig.json -t stylish",
     "test": "jest",
-    "watch": "tsc --watch --preserveWatchOutput"
+    "watch": "yarn build --watch --preserveWatchOutput"
   },
   "dependencies": {
     "leveldown": "^4.0.1",

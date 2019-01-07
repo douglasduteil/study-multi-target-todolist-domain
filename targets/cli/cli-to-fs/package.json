@@ -1,0 +1,56 @@
+{
+  "name": "@todolist~target/cli-to-fs",
+  "description": "Todolist app as cli",
+  "version": "1.0.0",
+  "private": true,
+  "main": "bin/index.js",
+  "bin": {
+    "todolist": "./bin/index.js"
+  },
+  "scripts": {
+    "build": "ncc build ./src/index.ts -o bin",
+    "lint": "tslint -p tsconfig.json -t stylish",
+    "integration": "jest --config integration/jest.config.js",
+    "test": "jest",
+    "watch": "yarn build --watch"
+  },
+  "dependencies": {
+    "@todolist/core": "^1.0.0",
+    "@todolist.ui/yargs": "^1.0.0",
+    "@todolist.databases/lowdb": "^1.0.0",
+    "inversify": "^5.0.1",
+    "lowdb": "^1.0.0",
+    "reflect-metadata": "^0.1.12",
+    "tslib": "^1.9.3",
+    "yargs": "^12.0.5"
+  },
+  "devDependencies": {
+    "@types/execa": "^0.9.0",
+    "@types/fs-extra": "^5.0.4",
+    "@types/jest": "^23.3.11",
+    "@types/ramda": "^0.25.46",
+    "@types/tempy": "^0.2.0",
+    "@types/yargs": "^12.0.5",
+    "@zeit/ncc": "^0.8.1",
+    "chokidar": "^2.0.4",
+    "execa": "^1.0.0",
+    "fp-ts": "^1.12.2",
+    "fs-extra": "^7.0.1",
+    "jest": "^23.6.0",
+    "tempy": "^0.2.1",
+    "ts-jest": "^23.10.5",
+    "tslint": "^5.12.0",
+    "typescript": "^3.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/douglasduteil/study-multi-target-todolist-domain.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/douglasduteil/study-multi-target-todolist-domain/issues"
+  },
+  "homepage": "https://github.com/douglasduteil/study-multi-target-todolist-domain#readme"
+}
