@@ -4,8 +4,11 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "module": "commonjs",
+    "lib": ["es2018", "dom"],
+    "module": "esnext",
     "moduleResolution": "node",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "strict": true,
     "target": "es2018"
   }

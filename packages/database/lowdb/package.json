@@ -1,5 +1,5 @@
 {
-  "name": "@todolist.databases/lowdb",
+  "name": "@todolist/databases.lowdb",
   "description": "The Lowdb todolist database",
   "version": "1.0.0",
   "private": true,
@@ -15,7 +15,7 @@
     "lowdb": "^1.0.0"
   },
   "devDependencies": {
-    "@types/jest": "^23.3.11",
+    "@types/jest": "^23.3.12",
     "@types/lowdb": "^1.0.6",
     "jest": "^23.6.0",
     "ts-jest": "^23.10.5",

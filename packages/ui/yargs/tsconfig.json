@@ -4,7 +4,9 @@
     "baseUrl": ".",
     "declaration": true,
     "outDir": "lib",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "types": ["jest"]
   },
-  "files": ["src/index.ts"]
+  "files": ["src/index.ts"],
+  "include": ["src/**/*"]
 }

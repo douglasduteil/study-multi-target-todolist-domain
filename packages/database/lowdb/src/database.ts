@@ -33,10 +33,8 @@ export class Database {
   }
 
   public addTodo(todo: Todo): Todo {
-    const index = this.db
-      .get("index")
-      .add(1)
-      .write();
+    const index = this.db.get("index").value();
+    this.db.set("index", index + 1).write();
 
     const newTodo: Todo = {
       ...todo,

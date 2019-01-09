@@ -3,7 +3,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "declaration": true,
-    "outDir": "lib"
+    "outDir": "lib",
+    "types": ["jest"]
   },
-  "files": ["src/index.ts"]
+  "files": ["src/index.ts"],
+  "include": ["src/**/*"]
 }

@@ -1,6 +1,6 @@
 {
-  "name": "@todolist.ui/yargs",
-  "description": "The Lowdb todolist database",
+  "name": "@todolist/ui.yargs",
+  "description": "The Yargs todolist ui",
   "version": "1.0.0",
   "private": true,
   "main": "lib/index.js",
@@ -12,12 +12,14 @@
   },
   "dependencies": {
     "@todolist/core": "^1.0.0",
-    "lowdb": "^1.0.0",
-    "tslib": "^1.9.3"
+    "ramda": "^0.26.1",
+    "tslib": "^1.9.3",
+    "yargs": "^12.0.5"
   },
   "devDependencies": {
-    "@types/jest": "^23.3.11",
-    "@types/lowdb": "^1.0.6",
+    "@types/ramda": "^0.25.46",
+    "@types/jest": "^23.3.12",
+    "@types/yargs": "^12.0.5",
     "jest": "^23.6.0",
     "ts-jest": "^23.10.5",
     "tslint": "^5.12.0",

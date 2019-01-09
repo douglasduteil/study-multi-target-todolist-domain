@@ -1,0 +1,11 @@
+{
+  "extends": "../../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "jsx": "preserve",
+    "declaration": true,
+    "outDir": "lib",
+    "resolveJsonModule": true
+  },
+  "files": ["src/index.ts"]
+}

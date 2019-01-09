@@ -1,13 +1,15 @@
 //
 
+import * as add from "./commands/add";
 import * as list from "./commands/list";
 
 //
 
-export { main } from "./main";
+export const commands = {
+  add,
+  list
+};
 
 //
 
-export const commands = {
-  list
-};
+export { main } from "./main";

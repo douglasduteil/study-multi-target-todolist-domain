@@ -8,18 +8,6 @@ import { mapAliasOnOptions } from "./utils";
 
 //
 
-export class ListCommand {
-  public aliases: ReadonlyArray<Aliases> = ["ls", "la", "ll"];
-  public command = "list [options]";
-  public describe = "List todos";
-  public preHandler = pipe(mapAliasOnOptions);
-  public builder<T>(yargs: Argv<T>): Argv<any> {
-    return yargs.options(options).group(Object.keys(options), group);
-  }
-}
-
-//
-
 export const aliases: ReadonlyArray<Aliases> = ["ls", "la", "ll"];
 export const command = "list";
 export const describe = "List todos";

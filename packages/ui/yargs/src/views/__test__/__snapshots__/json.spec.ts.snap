@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return list of 0 todos 1`] = `"[]"`;
+
+exports[`should return list of one foo todo 1`] = `"[{\\"completed\\":false,\\"createdAt\\":\\"1970-01-01T00:00:00.000Z\\",\\"id\\":\\"\\",\\"title\\":\\"foo\\",\\"updatedAt\\":\\"1970-01-01T00:00:00.000Z\\"}]"`;

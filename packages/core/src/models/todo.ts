@@ -1,6 +1,8 @@
+import { Omit } from "next/router";
+
 //
 
-export interface Todo {
+export type Todo = Readonly<{
   completed: boolean;
   completedAt?: Date;
   createdAt: Date;
@@ -9,4 +11,6 @@ export interface Todo {
   tags?: string[];
   title: string;
   updatedAt: Date;
-}
+}>;
+
+export type NewTodo = Omit<Todo, "createdAt" | "id" | "updatedAt">;

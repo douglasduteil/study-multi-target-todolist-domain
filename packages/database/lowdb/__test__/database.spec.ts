@@ -37,11 +37,57 @@ test("should add Omelette to the todo base", () => {
 Object {
   "completed": false,
   "createdAt": 1970-01-01T00:00:00.042Z,
-  "id": "1",
+  "id": "0",
   "title": "Omelette",
   "updatedAt": 1970-01-01T00:00:00.042Z,
 }
 `);
+});
+
+test("should add Omelette and Fromage to the todo base", () => {
+  const database = new Database(new LowMemoryAdapter<LowDbShema>("foo"));
+
+  const omelette: Todo = {
+    completed: false,
+    createdAt: new Date(0), // unnecessary
+    id: "", // unnecessary
+    title: "Omelette",
+    updatedAt: new Date(0) // unnecessary
+  };
+
+  const fromage: Todo = {
+    completed: false,
+    createdAt: new Date(0),
+    id: "",
+    title: "Fromage",
+    updatedAt: new Date(0)
+  }; // unnecessary // unnecessary // unnecessary
+
+  dateNowSpy.mockImplementation(() => new Date(42));
+  {
+    const result = database.addTodo(omelette);
+    expect(result).toMatchInlineSnapshot(`
+Object {
+  "completed": false,
+  "createdAt": 1970-01-01T00:00:00.042Z,
+  "id": "0",
+  "title": "Omelette",
+  "updatedAt": 1970-01-01T00:00:00.042Z,
+}
+`);
+  }
+  {
+    const result = database.addTodo(fromage);
+    expect(result).toMatchInlineSnapshot(`
+Object {
+  "completed": false,
+  "createdAt": 1970-01-01T00:00:00.042Z,
+  "id": "1",
+  "title": "Fromage",
+  "updatedAt": 1970-01-01T00:00:00.042Z,
+}
+`);
+  }
 });
 
 test("should get the Chocolate", () => {
