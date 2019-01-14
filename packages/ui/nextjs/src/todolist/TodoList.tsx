@@ -1,29 +1,50 @@
 //
 
-import { NewTodo, Todo, TodoDataSource } from "@todolist/core";
+import {
+  NewTodo,
+  Todo,
+  TodoDataSource,
+  TodoListFilterFn
+} from "@todolist/core";
 import { Component, ContextType, KeyboardEvent } from "react";
 import { ContainerContext, IDENTIFIER } from "../core";
+import { TodoListFilterOptions } from "@todolist/core";
+import { DisplayOptions } from "./DisplayOptions";
 
 //
 
 interface TodoListState {
   input: string;
+  options: TodoListFilterOptions;
   todos: ReadonlyArray<Todo>;
 }
 
-export class TodoList extends Component<{}, TodoListState> {
+export const initialState: TodoListState = {
+  input: "",
+  options: { all: false, long: true },
+  todos: []
+};
+
+export class TodoList extends Component<{}> {
   static contextType = ContainerContext;
   context!: ContextType<typeof ContainerContext>;
-  constructor(props: {}) {
-    super(props);
-    this.state = { input: "", todos: [] };
-  }
+  state = initialState;
+
+  //
+
   componentDidMount(): void {
     this.update();
   }
 
   render(): JSX.Element {
-    const { todos } = this.state;
+    const { todos, options } = this.state;
+
+    const todolistFilterFn = this.context.get<TodoListFilterFn>(
+      IDENTIFIER.CORE_FILTER
+    );
+    const filtredTodos = todolistFilterFn(options);
+
+    console.log("render", options);
 
     return (
       <div>
@@ -31,8 +52,10 @@ export class TodoList extends Component<{}, TodoListState> {
 
         <input type="text" onKeyPress={this.onKeyPress} />
 
+        <DisplayOptions onChange={this.onOptionsChange} />
+
         <ul>
-          {todos.map(todo => (
+          {filtredTodos(todos).map(todo => (
             <li key={todo.id}>{todo.title}</li>
           ))}
         </ul>
@@ -48,10 +71,7 @@ export class TodoList extends Component<{}, TodoListState> {
     }
 
     const input = event.target as HTMLInputElement;
-    const todo: NewTodo = {
-      completed: false,
-      title: input.value
-    };
+    const todo: NewTodo = { completed: false, title: input.value };
 
     (async () => {
       const todoDataSource = this.context.get<TodoDataSource>(
@@ -62,6 +82,8 @@ export class TodoList extends Component<{}, TodoListState> {
       await this.update();
     })();
   };
+  onOptionsChange = (options: TodoListFilterOptions) =>
+    this.setState({ options });
 
   async update(): Promise<void> {
     const todoDataSource = this.context.get<TodoDataSource>(

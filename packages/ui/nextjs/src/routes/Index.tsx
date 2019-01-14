@@ -3,15 +3,11 @@
 import { NextContext } from "next";
 import Head from "next/head";
 import React, { Component, Fragment } from "react";
-import { TodoList } from "../todolist/TodoList";
+import { TodoList } from "../todolist";
 
 //
 
 export class TodoListRoute extends Component<NextContext, {}> {
-  constructor(props: NextContext) {
-    super(props);
-  }
-
   render(): JSX.Element {
     return (
       <Fragment>

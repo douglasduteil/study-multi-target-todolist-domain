@@ -15,7 +15,11 @@ const filterMetaData = pick(["completed", "id", "title"]);
 //
 
 export type TodoListFilterFn = typeof filterTodosFn;
-export const filterTodosFn = (options: { all: boolean; long: boolean }) =>
+export interface TodoListFilterOptions {
+  all: boolean;
+  long: boolean;
+}
+export const filterTodosFn = (options: TodoListFilterOptions) =>
   pipe(
     unless(() => options.all, filterUncompletedTodo),
     unless(() => options.long, map<Todo, TodoWithoutMeta>(filterMetaData))

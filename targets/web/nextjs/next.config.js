@@ -10,7 +10,12 @@ module.exports = flow(
   withTypescript,
   withTranspileModules
 )({
-  transpileModules: ["@todolist/databases.lowdb", "@todolist/ui.nextjs"],
+  transpileModules: [
+    "@todolist/core",
+    "@todolist/databases.lowdb",
+    "@todolist/ui.nextjs",
+    "ramda"
+  ],
   webpack: flow(withPolyfills)
 });
 
