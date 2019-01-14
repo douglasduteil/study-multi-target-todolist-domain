@@ -8,18 +8,18 @@ import { LowDbShema } from "./models";
 //
 
 export class Database implements TodoDataSource {
-  public db: low.LowdbSync<LowDbShema>;
+  db: low.LowdbSync<LowDbShema>;
   constructor(
     adapter: low.AdapterSync<LowDbShema> | low.AdapterAsync<LowDbShema>
   ) {
     this.db = low(adapter);
     this.db.defaults({ index: 0, todos: [] }).write();
   }
-  public getTodos(): Todo[] {
+  getTodos(): Todo[] {
     return this.db.get("todos").value();
   }
 
-  public getTodo(id: string): Todo {
+  getTodo(id: string): Todo {
     const todo = this.db
       .get("todos")
       .find({ id })
@@ -32,7 +32,7 @@ export class Database implements TodoDataSource {
     return todo;
   }
 
-  public addTodo(todo: NewTodo): Todo {
+  addTodo(todo: NewTodo): Todo {
     const index = this.db.get("index").value();
     this.db.set("index", index + 1).write();
 
@@ -51,7 +51,7 @@ export class Database implements TodoDataSource {
     return newTodo;
   }
 
-  public updateTodo(id: string, todo: Partial<NewTodo>): Todo {
+  updateTodo(id: string, todo: Partial<NewTodo>): Todo {
     const actual = this.getTodo(id);
     const lockedValues = { createdAt: actual.createdAt, id: actual.id };
     const newTodo: Todo = {
@@ -70,7 +70,7 @@ export class Database implements TodoDataSource {
     return newTodo;
   }
 
-  public removeTodo(id: string): Todo {
+  removeTodo(id: string): Todo {
     const actual = this.getTodo(id);
 
     this.db

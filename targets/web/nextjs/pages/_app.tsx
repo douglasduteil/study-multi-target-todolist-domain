@@ -10,7 +10,7 @@ import { container } from "src/container";
 //
 
 export default class MyApp extends App {
-  public render(): JSX.Element {
+  render(): JSX.Element {
     const { Component, pageProps } = this.props;
 
     return (

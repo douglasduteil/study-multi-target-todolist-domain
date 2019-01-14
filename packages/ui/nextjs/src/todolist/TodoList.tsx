@@ -1,6 +1,6 @@
 //
 
-import { Todo, TodoDataSource } from "@todolist/core";
+import { NewTodo, Todo, TodoDataSource } from "@todolist/core";
 import { Component, ContextType, KeyboardEvent } from "react";
 import { ContainerContext, IDENTIFIER } from "../core";
 
@@ -8,21 +8,21 @@ import { ContainerContext, IDENTIFIER } from "../core";
 
 interface TodoListState {
   input: string;
-  todos: Todo[];
+  todos: ReadonlyArray<Todo>;
 }
 
 export class TodoList extends Component<{}, TodoListState> {
-  public static contextType = ContainerContext;
-  public context!: ContextType<typeof ContainerContext>;
+  static contextType = ContainerContext;
+  context!: ContextType<typeof ContainerContext>;
   constructor(props: {}) {
     super(props);
     this.state = { input: "", todos: [] };
   }
-  public componentDidMount(): void {
+  componentDidMount(): void {
     this.update();
   }
 
-  public render(): JSX.Element {
+  render(): JSX.Element {
     const { todos } = this.state;
 
     return (
@@ -42,18 +42,15 @@ export class TodoList extends Component<{}, TodoListState> {
 
   //
 
-  private onKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
+  onKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key !== "Enter") {
       return;
     }
 
     const input = event.target as HTMLInputElement;
-    const todo: Todo = {
+    const todo: NewTodo = {
       completed: false,
-      createdAt: new Date(0), // ! to remove
-      id: "", // ! to remove
-      title: input.value,
-      updatedAt: new Date(0) // ! to remove
+      title: input.value
     };
 
     (async () => {
@@ -66,7 +63,7 @@ export class TodoList extends Component<{}, TodoListState> {
     })();
   };
 
-  private async update(): Promise<void> {
+  async update(): Promise<void> {
     const todoDataSource = this.context.get<TodoDataSource>(
       IDENTIFIER.DATA_SOURCE
     );

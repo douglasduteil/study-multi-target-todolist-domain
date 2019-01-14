@@ -1,12 +1,14 @@
 {
-  "extends": "../../../tsconfig.json",
+  "extends": "../../../tsconfig.base.json",
   "compilerOptions": {
-    "baseUrl": ".",
-    "declaration": true,
+    "composite": true,
     "outDir": "lib",
-    "resolveJsonModule": true,
-    "types": ["jest"]
+    "rootDir": "src"
   },
-  "files": ["src/index.ts"],
-  "include": ["src/**/*"]
+  "exclude": ["**/__test__", "lib", "node_modules"],
+  "references": [
+    {
+      "path": "../../core"
+    }
+  ]
 }

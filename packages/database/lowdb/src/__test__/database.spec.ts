@@ -2,7 +2,7 @@
 
 import { NewTodo } from "@todolist/core";
 import LowMemoryAdapter from "lowdb/adapters/Memory";
-import { Database, LowDbShema, NotFoundError } from "../src";
+import { Database, LowDbShema, NotFoundError } from "..";
 
 //
 

@@ -12,16 +12,16 @@
   },
   "dependencies": {
     "@todolist/core": "^1.0.0",
-    "tslib": "^1.9.3",
     "next": "^7.0.2",
     "react": "^16.7.0",
-    "react-dom": "^16.7.0"
+    "react-dom": "^16.7.0",
+    "tslib": "^1.9.3"
   },
   "devDependencies": {
     "@types/jest": "^23.3.12",
     "jest": "^23.6.0",
     "ts-jest": "^23.10.5",
-    "tslint": "^5.12.0",
+    "tslint": "^5.12.1",
     "typescript": "^3.2.2"
   },
   "repository": {

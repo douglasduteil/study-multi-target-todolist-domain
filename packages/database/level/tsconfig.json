@@ -1,9 +1,13 @@
 {
-  "extends": "../../../tsconfig.json",
+  "extends": "../../../tsconfig.base.json",
   "compilerOptions": {
-    "baseUrl": ".",
-    "declaration": true,
-    "outDir": "lib"
+    "composite": true,
+    "outDir": "lib",
+    "rootDir": "src"
   },
-  "files": ["src/index.ts"]
+  "references": [
+    {
+      "path": "../../core"
+    }
+  ]
 }

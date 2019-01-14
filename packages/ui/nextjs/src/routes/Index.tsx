@@ -12,7 +12,7 @@ export class TodoListRoute extends Component<NextContext, {}> {
     super(props);
   }
 
-  public render(): JSX.Element {
+  render(): JSX.Element {
     return (
       <Fragment>
         <Head>

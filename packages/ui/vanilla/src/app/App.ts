@@ -10,7 +10,7 @@ export class AppComponent {
     private todoDataSource: TodoDataSource
   ) {}
 
-  public init(): void {
+  init(): void {
     const todoList = new List(this.rootElement);
 
     const update = async () => {
@@ -21,11 +21,11 @@ export class AppComponent {
       const input = event.target as HTMLInputElement;
       const todo: Todo = {
         completed: false,
-        createdAt: new Date(0), // to remove
-        id: "", // to remove
+        createdAt: new Date(0),
+        id: "",
         title: input.value,
-        updatedAt: new Date(0) // to remove
-      };
+        updatedAt: new Date(0)
+      }; // to remove // to remove // to remove
       await this.todoDataSource.addTodo(todo);
       await update();
       return false;

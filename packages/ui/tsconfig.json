@@ -1,0 +1,8 @@
+{
+  "files": [],
+  "references": [
+    { "path": "nextjs" },
+    { "path": "vanilla" },
+    { "path": "yargs" }
+  ]
+}

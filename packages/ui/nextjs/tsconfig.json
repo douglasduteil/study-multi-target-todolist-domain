@@ -1,11 +1,16 @@
 {
-  "extends": "../../../tsconfig.json",
+  "extends": "../../../tsconfig.base.json",
   "compilerOptions": {
-    "baseUrl": ".",
+    "composite": true,
     "jsx": "preserve",
-    "declaration": true,
     "outDir": "lib",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "rootDir": "src"
   },
-  "files": ["src/index.ts"]
+  "exclude": ["__test__", "lib", "node_modules"],
+  "references": [
+    {
+      "path": "../../core"
+    }
+  ]
 }

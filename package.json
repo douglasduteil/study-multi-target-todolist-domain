@@ -4,17 +4,22 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "lerna run --stream build",
+    "build": "run-p build:*",
+    "build:packages": "tsc -b packages --verbose",
+    "build:target": "lerna run --stream --parallel --scope @todolist/target.* build",
     "lint": "lerna run --stream --parallel lint",
     "start": "lerna run --stream --parallel start",
     "test_coverage": "lerna run --stream --parallel test -- --coverage",
     "test": "lerna run --stream --parallel test",
-    "watch": "lerna run --stream --parallel watch"
+    "watch": "run-p watch:*",
+    "watch:packages": "yarn build:packages --watch --preserveWatchOutput",
+    "watch:target": "lerna run --stream --parallel --scope @todolist/target.* watch"
   },
   "devDependencies": {
     "lerna": "^3.8.5",
+    "npm-run-all": "^4.1.5",
     "prettier": "^1.15.3",
-    "tslint": "^5.12.0",
+    "tslint": "^5.12.1",
     "tslint-config-prettier": "^1.17.0",
     "tslint-immutable": "^5.0.1",
     "typescript": "^3.2.2"

@@ -3,6 +3,7 @@
   "extends": ["tslint:latest", "tslint-config-prettier", "tslint-immutable"],
   "jsRules": {},
   "rules": {
+    "member-access": false,
     "no-implicit-dependencies": false,
     "interface-name": false,
     "no-submodule-imports": false,
