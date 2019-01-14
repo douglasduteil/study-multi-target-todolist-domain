@@ -5,7 +5,7 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "build": "ncc build ./src/index.ts -o bin",
+    "build": "ncc build ./src/index.ts -o dist",
     "lint": "tslint -p tsconfig.json -t stylish",
     "integration": "jest --config integration/jest.config.js",
     "test": "jest",
@@ -19,9 +19,7 @@
     "@todolist/core": "^1.0.0",
     "@todolist/databases.lowdb": "^1.0.0",
     "@todolist/ui.yargs": "^1.0.0",
-    "inversify": "^5.0.1",
-    "lowdb": "^1.0.0",
-    "reflect-metadata": "^0.1.12"
+    "lowdb": "^1.0.0"
   },
   "devDependencies": {
     "@types/jest": "^23.3.12",

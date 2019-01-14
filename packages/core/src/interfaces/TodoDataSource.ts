@@ -1,10 +1,10 @@
 //
 
-import { Todo } from "../models/todo";
+import { NewTodo, Todo } from "../models/todo";
 
 //
 
 export interface TodoDataSource {
-  addTodo(todo: Todo): Todo;
-  getTodos(): Todo[];
+  addTodo(todo: NewTodo): Todo;
+  getTodos(): ReadonlyArray<Todo>;
 }

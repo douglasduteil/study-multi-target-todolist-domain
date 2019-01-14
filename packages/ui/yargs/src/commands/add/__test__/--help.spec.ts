@@ -11,17 +11,17 @@ const command = new AddCommand(({} as any) as TodoDataSource);
 //
 
 test("should display help", () => {
-  const log = jest.fn();
+  const parseFn = jest.fn();
   yargs
     .usage("foo add <options>")
     .scriptName("test")
     .command(command)
     .wrap(80)
-    .parse(["add", "--help"], log);
-  const [[error, , output]] = log.mock.calls;
+    .parse(["add", "--help"], parseFn);
+  const [[error, , output]] = parseFn.mock.calls;
   expect(error).toBeUndefined();
   expect(output).toMatchInlineSnapshot(`
-"test add
+"test add <message>
 
 Add a todo
 

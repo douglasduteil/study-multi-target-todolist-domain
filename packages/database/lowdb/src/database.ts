@@ -1,13 +1,13 @@
 //
 
-import { Todo } from "@todolist/core";
+import { NewTodo, Todo, TodoDataSource } from "@todolist/core";
 import low from "lowdb";
 import { NotFoundError } from "./errors";
 import { LowDbShema } from "./models";
 
 //
 
-export class Database {
+export class Database implements TodoDataSource {
   public db: low.LowdbSync<LowDbShema>;
   constructor(
     adapter: low.AdapterSync<LowDbShema> | low.AdapterAsync<LowDbShema>
@@ -32,7 +32,7 @@ export class Database {
     return todo;
   }
 
-  public addTodo(todo: Todo): Todo {
+  public addTodo(todo: NewTodo): Todo {
     const index = this.db.get("index").value();
     this.db.set("index", index + 1).write();
 
@@ -51,7 +51,7 @@ export class Database {
     return newTodo;
   }
 
-  public updateTodo(id: string, todo: Partial<Todo>): Todo {
+  public updateTodo(id: string, todo: Partial<NewTodo>): Todo {
     const actual = this.getTodo(id);
     const lockedValues = { createdAt: actual.createdAt, id: actual.id };
     const newTodo: Todo = {

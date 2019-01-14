@@ -1438,6 +1438,11 @@
   resolved "https://registry.npmjs.org/@types/cookiejar/-/cookiejar-2.1.0.tgz#4b7daf2c51696cfc70b942c11690528229d1a1ce"
   integrity sha512-EIjmpvnHj+T4nMcKwHwxZKUfDmphIKJc2qnEMhSoOvr1lYEQpuRKRz8orWr//krYIIArS/KGGLfL2YGVUYXmIA==
 
+"@types/dedent@^0.7.0":
+  version "0.7.0"
+  resolved "https://registry.npmjs.org/@types/dedent/-/dedent-0.7.0.tgz#155f339ca404e6dd90b9ce46a3f78fd69ca9b050"
+  integrity sha512-EGlKlgMhnLt/cM4DbUSafFdrkeJoC9Mvnj0PUCU7tFmTjMjNRT957kXCx0wYm3JuEq4o4ZsS5vG+NlkM2DMd2A==
+
 "@types/events@*":
   version "1.2.0"
   resolved "https://registry.npmjs.org/@types/events/-/events-1.2.0.tgz#81a6731ce4df43619e5c8c945383b3e62a89ea86"
@@ -8795,6 +8800,11 @@ rxjs@^6.1.0, rxjs@^6.2.2:
   integrity sha512-JTWmoY9tWCs7zvIk/CvRjhjGaOd+OVBM987mxFo+OW66cGpdKjZcpmc74ES1sB//7Kl/PAe8+wEakuhG4pcgOw==
   dependencies:
     tslib "^1.9.0"
+
+s-ago@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.npmjs.org/s-ago/-/s-ago-2.0.1.tgz#17c66445c27adc722d7f45da7c0313b4c49c5d1e"
+  integrity sha512-g42+ruIuhLEl3eBoVGzV7fO6VqLfog3p0mc0zSs48udPeaF8A/vcfc9sXSYgGBgYPgjCcPFEEgw3uuVq8/qQQQ==
 
 safe-buffer@5.1.1:
   version "5.1.1"

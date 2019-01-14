@@ -1,5 +1,3 @@
-import { Omit } from "next/router";
-
 //
 
 export type Todo = Readonly<{
@@ -13,4 +11,12 @@ export type Todo = Readonly<{
   updatedAt: Date;
 }>;
 
-export type NewTodo = Omit<Todo, "createdAt" | "id" | "updatedAt">;
+export type NewTodo = Pick<
+  Todo,
+  Exclude<keyof Todo, "createdAt" | "id" | "updatedAt">
+>;
+
+export type TodoWithoutMeta = Pick<
+  Todo,
+  Exclude<keyof Todo, Exclude<keyof Todo, "completed" | "id" | "title">>
+>;

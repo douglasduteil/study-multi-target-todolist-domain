@@ -4,8 +4,8 @@
     "baseUrl": ".",
     "declaration": true,
     "outDir": "lib",
-    "types": ["jest"]
+    "types": ["jest"],
+    "rootDirs": ["__test__", "src"]
   },
-  "files": ["src/index.ts"],
-  "include": ["src/**/*"]
+  "files": ["src/index.ts"]
 }

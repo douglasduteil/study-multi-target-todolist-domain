@@ -1,30 +1,34 @@
 //
 
 import yargs from "yargs";
-import * as command from "..";
+import { command, dataSource, logger } from "./_fake";
 
 //
 
-test("should display help", () => {
-  const log = jest.fn();
-  yargs
+afterEach(() => {
+  dataSource.getTodos.mockReset();
+});
+
+//
+
+test("'list --all' should display all todos", async () => {
+  const parseFn = jest.fn();
+
+  await yargs
     .scriptName("test")
     .command(command)
     .wrap(80)
-    .parse(["list", "--all"], log);
-  const [[error, parsed]] = log.mock.calls;
+    .parse(["list", "--all"], parseFn);
+
+  const [[error]] = parseFn.mock.calls;
   expect(error).toBeNull();
-  expect(parsed).toMatchInlineSnapshot(`
-Object {
-  "$0": "test",
-  "_": Array [
-    "list",
-  ],
-  "a": true,
-  "all": true,
-  "json": false,
-  "l": false,
-  "long": false,
-}
+  expect(dataSource.getTodos).toHaveBeenCalled();
+  const [[output]] = logger.log.mock.calls;
+  expect(output).toMatchInlineSnapshot(`
+"(1) ☐ Omelette
+(2) ☐ Chocolate
+(3) ☒ Milk
+(4) ☒ Bread
+(5) ☐ Butter"
 `);
 });

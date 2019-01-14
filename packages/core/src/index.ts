@@ -1,4 +1,5 @@
 //
 
 export * from "./models/todo";
-export * from "./interfaces/TodoDataSource";
+export * from "./interfaces";
+export * from "./functions";

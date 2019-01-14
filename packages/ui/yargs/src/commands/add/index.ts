@@ -17,10 +17,7 @@ export class AddCommand implements CommandModule<Argv<{}>, AddArguments> {
   public handler = (args: AddArguments) => {
     this.todoDataSource.addTodo({
       completed: false,
-      createdAt: new Date(0),
-      id: "",
-      title: args.message,
-      updatedAt: new Date(0)
+      title: args.message
     });
   };
 }

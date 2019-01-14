@@ -11,22 +11,20 @@ afterEach(() => {
 
 //
 
-test("'list' should list uncompleted todos", async () => {
+test("'list --json' should display uncompleted todos in json format", async () => {
   const parseFn = jest.fn();
 
   await yargs
     .scriptName("test")
     .command(command)
     .wrap(80)
-    .parse(["list"], parseFn);
+    .parse(["list", "--json"], parseFn);
 
   const [[error]] = parseFn.mock.calls;
   expect(error).toBeNull();
   expect(dataSource.getTodos).toHaveBeenCalled();
   const [[output]] = logger.log.mock.calls;
-  expect(output).toMatchInlineSnapshot(`
-"(1) ☐ Omelette
-(2) ☐ Chocolate
-(5) ☐ Butter"
-`);
+  expect(output).toMatchInlineSnapshot(
+    `"[{\\"completed\\":false,\\"id\\":\\"1\\",\\"title\\":\\"Omelette\\"},{\\"completed\\":false,\\"id\\":\\"2\\",\\"title\\":\\"Chocolate\\"},{\\"completed\\":false,\\"id\\":\\"5\\",\\"title\\":\\"Butter\\"}]"`
+  );
 });

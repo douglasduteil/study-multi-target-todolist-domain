@@ -15,38 +15,32 @@ afterEach(() => {
 
 //
 
-test("'add' should display the current uncompleted todos", () => {
-  const log = jest.fn();
+test("'add' should call 'dataSource.addTodo' with the given message", () => {
+  const parseFn = jest.fn();
   yargs
     .scriptName("test")
     .command(command)
     .wrap(80)
-    .parse(["add", "Hello World"], log);
-  const [[error]] = log.mock.calls;
+    .parse(["add", "Hello World"], parseFn);
+  const [[error]] = parseFn.mock.calls;
   expect(error).toBeNull();
   expect(dataSource.addTodo).toHaveBeenCalledWith({
     completed: false,
-    createdAt: new Date(0),
-    id: "",
-    title: "Hello World",
-    updatedAt: new Date(0)
+    title: "Hello World"
   });
 });
 
-test("'a' should display the current uncompleted todos", () => {
-  const log = jest.fn();
+test("'a'  should call 'dataSource.addTodo' with the given message", () => {
+  const parseFn = jest.fn();
   yargs
     .scriptName("test")
     .command(command)
     .wrap(80)
-    .parse(["a", "Hello Momo"], log);
-  const [[error]] = log.mock.calls;
+    .parse(["a", "Hello Momo"], parseFn);
+  const [[error]] = parseFn.mock.calls;
   expect(error).toBeNull();
   expect(dataSource.addTodo).toHaveBeenCalledWith({
     completed: false,
-    createdAt: new Date(0),
-    id: "",
-    title: "Hello Momo",
-    updatedAt: new Date(0)
+    title: "Hello Momo"
   });
 });

@@ -1,14 +1,11 @@
 //
 
-import * as add from "./commands/add";
-import * as list from "./commands/list";
+import { AddCommand } from "./commands/add";
+import { ListCommand } from "./commands/list";
 
 //
 
-export const commands = {
-  add,
-  list
-};
+export const commands = { AddCommand, ListCommand };
 
 //
 

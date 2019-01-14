@@ -1,6 +1,6 @@
 //
 
-import { Todo } from "@todolist/core";
+import { NewTodo } from "@todolist/core";
 import LowMemoryAdapter from "lowdb/adapters/Memory";
 import { Database, LowDbShema, NotFoundError } from "../src";
 
@@ -23,12 +23,9 @@ test("should start with no todos", () => {
 test("should add Omelette to the todo base", () => {
   const database = new Database(new LowMemoryAdapter<LowDbShema>("foo"));
 
-  const todo: Todo = {
+  const todo: NewTodo = {
     completed: false,
-    createdAt: new Date(0), // unnecessary
-    id: "", // unnecessary
-    title: "Omelette",
-    updatedAt: new Date(0) // unnecessary
+    title: "Omelette"
   };
 
   dateNowSpy.mockImplementation(() => new Date(42));
@@ -47,21 +44,15 @@ Object {
 test("should add Omelette and Fromage to the todo base", () => {
   const database = new Database(new LowMemoryAdapter<LowDbShema>("foo"));
 
-  const omelette: Todo = {
+  const omelette: NewTodo = {
     completed: false,
-    createdAt: new Date(0), // unnecessary
-    id: "", // unnecessary
-    title: "Omelette",
-    updatedAt: new Date(0) // unnecessary
+    title: "Omelette"
   };
 
-  const fromage: Todo = {
+  const fromage: NewTodo = {
     completed: false,
-    createdAt: new Date(0),
-    id: "",
-    title: "Fromage",
-    updatedAt: new Date(0)
-  }; // unnecessary // unnecessary // unnecessary
+    title: "Fromage"
+  };
 
   dateNowSpy.mockImplementation(() => new Date(42));
   {
@@ -136,7 +127,7 @@ test("should remove Milk", () => {
 
 //
 
-// ! TODO(douglasduteil): extract this...
+// TODO(douglasduteil): extract this...
 function fixturesTodosPopulate(database: Database): void {
   database.db
     .assign({

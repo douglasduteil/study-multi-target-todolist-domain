@@ -1,9 +1,10 @@
 //
 
 module.exports = {
-  preset: "ts-jest/presets/js-with-ts",
-  testEnvironment: "node",
   collectCoverageFrom: ["src/**/*.{ts,tsx}"],
+  preset: "ts-jest/presets/js-with-ts",
+  roots: ["<rootDir>/src"],
+  testEnvironment: "node",
   transformIgnorePatterns: ["node_modules/(?!ramda)"],
   globals: {
     "ts-jest": {

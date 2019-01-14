@@ -10,7 +10,9 @@ test("should return list of 0 todos", () => {
 });
 
 test("should return list of one foo todo", () => {
-  expect(listView([createFakeTodo({ title: "foo" })])).toMatchSnapshot();
+  expect(
+    listView([createFakeTodo({ id: "42", title: "foo" })])
+  ).toMatchSnapshot();
 });
 
 //
