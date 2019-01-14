@@ -42,9 +42,7 @@ export class TodoList extends Component<{}> {
     const todolistFilterFn = this.context.get<TodoListFilterFn>(
       IDENTIFIER.CORE_FILTER
     );
-    const filtredTodos = todolistFilterFn(options);
-
-    console.log("render", options);
+    const filterTodos = todolistFilterFn(options);
 
     return (
       <div>
@@ -55,7 +53,7 @@ export class TodoList extends Component<{}> {
         <DisplayOptions onChange={this.onOptionsChange} />
 
         <ul>
-          {filtredTodos(todos).map(todo => (
+          {filterTodos(todos).map(todo => (
             <li key={todo.id}>{todo.title}</li>
           ))}
         </ul>

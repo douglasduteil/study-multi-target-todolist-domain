@@ -1,37 +1,49 @@
-import { Todo, TodoDataSource } from "@todolist/core";
+import {
+  NewTodo,
+  TodoDataSource,
+  TodoListFilterFn,
+  TodoListFilterOptions
+} from "@todolist/core";
 import { List } from "./List";
 
 //
 
 // ? Can be a simple function...
 export class AppComponent {
+  options: TodoListFilterOptions = { all: false, long: true };
+
   constructor(
     private rootElement: HTMLElement,
-    private todoDataSource: TodoDataSource
+    private todoDataSource: TodoDataSource,
+    private todoFilterFn: TodoListFilterFn
   ) {}
 
   init(): void {
     const todoList = new List(this.rootElement);
 
     const update = async () => {
-      todoList.updateList(await this.todoDataSource.getTodos());
+      const data = await this.todoDataSource.getTodos();
+      const filterTodos = this.todoFilterFn(this.options);
+      const filteredData = filterTodos(data);
+
+      todoList.updateList(filteredData);
     };
 
     const addTodo = async (event: Event) => {
       const input = event.target as HTMLInputElement;
-      const todo: Todo = {
-        completed: false,
-        createdAt: new Date(0),
-        id: "",
-        title: input.value,
-        updatedAt: new Date(0)
-      }; // to remove // to remove // to remove
+      const todo: NewTodo = { completed: false, title: input.value };
       await this.todoDataSource.addTodo(todo);
       await update();
       return false;
     };
 
-    this.rootElement.addEventListener("change", addTodo);
+    const toggleAll = async () => {
+      this.options.all = !this.options.all;
+      await update();
+    };
+
+    todoList.input.addEventListener("change", addTodo);
+    todoList.toggleAll.addEventListener("change", toggleAll);
 
     update();
   }

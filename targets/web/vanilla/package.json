@@ -6,8 +6,8 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
+    "dev": "webpack-dev-server --mode development",
     "lint": "tslint -p tsconfig.json -t stylish",
-    "start": "webpack-dev-server --mode development",
     "watch": "webpack --mode development --watch"
   },
   "keywords": [],
