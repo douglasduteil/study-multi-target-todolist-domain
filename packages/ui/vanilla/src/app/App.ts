@@ -31,10 +31,9 @@ export class AppComponent {
 
     const addTodo = async (event: Event) => {
       const input = event.target as HTMLInputElement;
-      const todo: NewTodo = { completed: false, title: input.value };
+      const todo: NewTodo = { title: input.value };
       await this.todoDataSource.addTodo(todo);
       await update();
-      return false;
     };
 
     const toggleAll = async () => {

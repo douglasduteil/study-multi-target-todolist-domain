@@ -14,22 +14,21 @@ beforeEach(() => {
 
 afterAll(() => dateNowSpy.mockRestore());
 
-test("should start with no todos", () => {
+test("should start with no todos", async () => {
   const database = new Database(new LowMemoryAdapter<LowDbShema>("foo"));
-  const result = database.getTodos();
+  const result = await database.getTodos();
   expect(result).toEqual([]);
 });
 
-test("should add Omelette to the todo base", () => {
+test("should add Omelette to the todo base", async () => {
   const database = new Database(new LowMemoryAdapter<LowDbShema>("foo"));
 
   const todo: NewTodo = {
-    completed: false,
     title: "Omelette"
   };
 
   dateNowSpy.mockImplementation(() => new Date(42));
-  const result = database.addTodo(todo);
+  const result = await database.addTodo(todo);
   expect(result).toMatchInlineSnapshot(`
 Object {
   "completed": false,
@@ -41,22 +40,20 @@ Object {
 `);
 });
 
-test("should add Omelette and Fromage to the todo base", () => {
+test("should add Omelette and Fromage to the todo base", async () => {
   const database = new Database(new LowMemoryAdapter<LowDbShema>("foo"));
 
   const omelette: NewTodo = {
-    completed: false,
     title: "Omelette"
   };
 
   const fromage: NewTodo = {
-    completed: false,
     title: "Fromage"
   };
 
   dateNowSpy.mockImplementation(() => new Date(42));
   {
-    const result = database.addTodo(omelette);
+    const result = await database.addTodo(omelette);
     expect(result).toMatchInlineSnapshot(`
 Object {
   "completed": false,
@@ -68,7 +65,7 @@ Object {
 `);
   }
   {
-    const result = database.addTodo(fromage);
+    const result = await database.addTodo(fromage);
     expect(result).toMatchInlineSnapshot(`
 Object {
   "completed": false,
@@ -104,6 +101,7 @@ test("should update Butter as completed", () => {
   expect(result).toMatchInlineSnapshot(`
 Object {
   "completed": true,
+  "completedAt": 1970-01-01T00:00:00.146Z,
   "createdAt": 1970-01-01T00:00:00.046Z,
   "id": "5",
   "title": "Butter",
@@ -112,15 +110,38 @@ Object {
 `);
 });
 
-test("should remove Milk", () => {
+test("should lock some Butter meta data", () => {
+  const database = new Database(new LowMemoryAdapter<LowDbShema>("foo"));
+  fixturesTodosPopulate(database);
+  dateNowSpy.mockImplementation(() => new Date(146));
+  const result = database.updateTodo("5", {
+    completedAt: new Date(1),
+    createdAt: new Date(2),
+    id: "lol",
+    title: "More Butter",
+    updatedAt: new Date(3)
+  });
+  expect(result).toMatchInlineSnapshot(`
+Object {
+  "completed": false,
+  "completedAt": undefined,
+  "createdAt": 1970-01-01T00:00:00.046Z,
+  "id": "5",
+  "title": "More Butter",
+  "updatedAt": 1970-01-01T00:00:00.146Z,
+}
+`);
+});
+
+test("should remove Milk", async () => {
   const database = new Database(new LowMemoryAdapter<LowDbShema>("foo"));
   fixturesTodosPopulate(database);
 
-  const actual = database.getTodos().length;
+  const actual = (await database.getTodos()).length;
 
   database.removeTodo("3");
 
-  expect(database.getTodos().length).toBe(actual - 1);
+  expect((await database.getTodos()).length).toBe(actual - 1);
 
   expect(() => database.getTodo("3")).toThrowError(NotFoundError);
 });

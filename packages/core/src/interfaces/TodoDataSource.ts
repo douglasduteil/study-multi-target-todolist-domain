@@ -1,10 +1,10 @@
 //
 
-import { NewTodo, Todo } from "../models/todo";
+import { NewTodo, Todo } from "../models";
 
 //
 
 export interface TodoDataSource {
-  addTodo(todo: NewTodo): Todo;
-  getTodos(): ReadonlyArray<Todo>;
+  addTodo(todo: NewTodo): Promise<Todo>;
+  getTodos(): Promise<ReadonlyArray<Todo>>;
 }

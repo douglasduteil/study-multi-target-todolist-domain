@@ -4,11 +4,11 @@ import {
   NewTodo,
   Todo,
   TodoDataSource,
-  TodoListFilterFn
+  TodoListFilterFn,
+  TodoListFilterOptions
 } from "@todolist/core";
 import { Component, ContextType, KeyboardEvent } from "react";
 import { ContainerContext, IDENTIFIER } from "../core";
-import { TodoListFilterOptions } from "@todolist/core";
 import { DisplayOptions } from "./DisplayOptions";
 
 //
@@ -69,7 +69,7 @@ export class TodoList extends Component<{}> {
     }
 
     const input = event.target as HTMLInputElement;
-    const todo: NewTodo = { completed: false, title: input.value };
+    const todo: NewTodo = { title: input.value };
 
     (async () => {
       const todoDataSource = this.context.get<TodoDataSource>(

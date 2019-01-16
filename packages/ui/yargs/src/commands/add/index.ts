@@ -16,7 +16,6 @@ export class AddCommand implements CommandModule<Argv<{}>, AddArguments> {
   // ? `yargs` seems to call the handlers with forced `.bind(undefined, [...])`
   handler = (args: AddArguments) => {
     this.todoDataSource.addTodo({
-      completed: false,
       title: args.message
     });
   };

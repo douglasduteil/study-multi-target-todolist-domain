@@ -15,7 +15,7 @@ export class Database implements TodoDataSource {
     this.db = low(adapter);
     this.db.defaults({ index: 0, todos: [] }).write();
   }
-  getTodos(): Todo[] {
+  async getTodos(): Promise<ReadonlyArray<Todo>> {
     return this.db.get("todos").value();
   }
 
@@ -32,12 +32,13 @@ export class Database implements TodoDataSource {
     return todo;
   }
 
-  addTodo(todo: NewTodo): Todo {
+  async addTodo(todo: NewTodo): Promise<Todo> {
     const index = this.db.get("index").value();
     this.db.set("index", index + 1).write();
 
     const newTodo: Todo = {
       ...todo,
+      completed: false,
       createdAt: new Date(Date.now()),
       id: String(index),
       updatedAt: new Date(Date.now())
@@ -51,12 +52,25 @@ export class Database implements TodoDataSource {
     return newTodo;
   }
 
-  updateTodo(id: string, todo: Partial<NewTodo>): Todo {
+  updateTodo(id: string, todo: Partial<Todo>): Todo {
     const actual = this.getTodo(id);
-    const lockedValues = { createdAt: actual.createdAt, id: actual.id };
+    const completedValues: Partial<Todo> =
+      !actual.completed && todo.completed
+        ? {
+            completed: true, // as the new todo is completed indeed
+            completedAt: new Date(Date.now())
+          }
+        : {
+            completedAt: undefined // force undefined to lock the value
+          };
+    const lockedValues: Partial<Todo> = {
+      createdAt: actual.createdAt,
+      id: actual.id
+    };
     const newTodo: Todo = {
       ...actual,
       ...todo,
+      ...completedValues,
       updatedAt: new Date(Date.now()),
       ...lockedValues
     };

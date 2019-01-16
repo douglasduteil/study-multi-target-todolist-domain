@@ -13,7 +13,10 @@ export type Todo = Readonly<{
 
 export type NewTodo = Pick<
   Todo,
-  Exclude<keyof Todo, "createdAt" | "id" | "updatedAt">
+  Exclude<
+    keyof Todo,
+    "completed" | "completedAt" | "createdAt" | "id" | "updatedAt"
+  >
 >;
 
 export type TodoWithoutMeta = Pick<
