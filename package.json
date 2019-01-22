@@ -39,6 +39,6 @@
     "packages/*",
     "packages/database/*",
     "packages/ui/*",
-    "targets/*/*"
+    "targets/*/!(__e2e__)"
   ]
 }

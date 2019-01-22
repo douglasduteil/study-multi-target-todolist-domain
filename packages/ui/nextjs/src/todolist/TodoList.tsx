@@ -48,7 +48,10 @@ export class TodoList extends Component<{}> {
       <div>
         <h1>Next.js - Todo list</h1>
 
-        <input type="text" onKeyPress={this.onKeyPress} />
+        <label>
+          Add todo :
+          <input type="text" onKeyPress={this.onKeyPress} />
+        </label>
 
         <DisplayOptions onChange={this.onOptionsChange} />
 

@@ -3,7 +3,7 @@
     "packages/*",
     "packages/database/*",
     "packages/ui/*",
-    "targets/*/*"
+    "targets/*/!(__e2e__)"
   ],
   "version": "0.0.0"
 }

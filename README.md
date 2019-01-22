@@ -56,6 +56,8 @@
 <br>
 <br>
 
+Ports and adapters / hexagonal
+
 ## Install
 
 `yarn`
@@ -68,6 +70,21 @@
 ## Usage
 
 Run one of the targets.
+
+<br>
+<br>
+<br>
+<br>
+
+## E2E
+
+No installed by default !
+
+```sh
+$ cd targets/web/__e2e__
+$ yarn
+$ BASE_URL=http://localhost:XXXX yarn test
+```
 
 <br>
 <br>
