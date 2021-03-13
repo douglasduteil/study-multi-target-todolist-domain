@@ -481,12 +481,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@douglasduteil/eslint-config-framework@link:../../../eslint-config::locator=%40douglasduteil%2Fframework.docs.commands%40workspace%3Amodules%2Fcommands":
-  version: 0.0.0-use.local
-  resolution: "@douglasduteil/eslint-config-framework@link:../../../eslint-config::locator=%40douglasduteil%2Fframework.docs.commands%40workspace%3Amodules%2Fcommands"
-  languageName: node
-  linkType: soft
-
 "@douglasduteil/framework.docs.cli@link:./targets/cli::locator=%40douglasduteil%2Fframework.docs%40workspace%3A.":
   version: 0.0.0-use.local
   resolution: "@douglasduteil/framework.docs.cli@link:./targets/cli::locator=%40douglasduteil%2Fframework.docs%40workspace%3A."
@@ -515,8 +509,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@douglasduteil/framework.docs.commands@workspace:modules/commands"
   dependencies:
-    "@douglasduteil/eslint-config-framework": "link:../../../eslint-config"
     "@douglasduteil/framework.tools": "link:../../../tools"
+    "@socialgouv/eslint-config-typescript": ^1.58.0
     eslint: ^7.19.0
     jest: ^26.6.3
     typescript: ^4.1.5
@@ -832,7 +826,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@socialgouv/eslint-config-typescript@npm:^1.57.0":
+"@socialgouv/eslint-config-typescript@npm:^1.57.0, @socialgouv/eslint-config-typescript@npm:^1.58.0":
   version: 1.58.0
   resolution: "@socialgouv/eslint-config-typescript@npm:1.58.0"
   dependencies:

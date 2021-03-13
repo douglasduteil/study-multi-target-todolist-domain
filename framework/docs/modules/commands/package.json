@@ -17,8 +17,8 @@
     }
   },
   "devDependencies": {
-    "@douglasduteil/eslint-config-framework": "link:../../../eslint-config",
     "@douglasduteil/framework.tools": "link:../../../tools",
+    "@socialgouv/eslint-config-typescript": "^1.58.0",
     "eslint": "^7.19.0",
     "jest": "^26.6.3",
     "typescript": "^4.1.5"
@@ -41,8 +41,10 @@
     ]
   },
   "eslintConfig": {
-    "extends": "../../../eslint-config",
-    "ignorePatterns": ["**/lib/**"]
+    "extends": "@socialgouv/eslint-config-typescript",
+    "ignorePatterns": [
+      "**/lib/**"
+    ]
   },
   "jest": {
     "preset": "@douglasduteil/framework.tools"

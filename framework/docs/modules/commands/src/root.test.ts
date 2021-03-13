@@ -2,6 +2,7 @@
 //
 
 import { expect, jest, test } from "@jest/globals";
+
 import { main } from "./root";
 
 //
@@ -15,12 +16,12 @@ test("should display help", () => {
     .parse(["add", "--help"], parseFn);
 
   const [[error, , output]] = parseFn.mock.calls;
-  expect(error).toBeUndefined()
+  expect(error).toBeUndefined();
   expect(output).toMatchInlineSnapshot(`
     "Usage: my-test <command> [options]
 
     Options:
       -h, --help     Show help                                             [boolean]
       -v, --version  Show version number                                   [boolean]"
-  `)
-})
+  `);
+});
