@@ -1,3 +1,3 @@
 //
 
-export * from "./root";
+export * from "./root.js";

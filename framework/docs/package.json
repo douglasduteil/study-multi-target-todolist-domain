@@ -7,6 +7,7 @@
   "scripts": {
     "precommit": "yarn workspaces foreach run precommit",
     "lint": "yarn workspaces foreach run lint",
+    "build": "yarn workspaces foreach run build",
     "test": "yarn workspaces foreach run test",
     "docs": "dd-frameword-docs docs/features"
   },

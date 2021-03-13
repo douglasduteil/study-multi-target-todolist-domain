@@ -3,7 +3,9 @@
   "description": "Framework docs commands",
   "license": "WTFPL",
   "private": true,
+  "type": "module",
   "version": "1.0.0",
+  "main": "lib/index.js",
   "babel": {
     "env": {
       "test": {

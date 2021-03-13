@@ -3,6 +3,7 @@
   "description": "Framework docs",
   "license": "WTFPL",
   "private": true,
+  "type": "module",
   "version": "1.0.0",
   "babel": {
     "env": {
@@ -16,18 +17,8 @@
       }
     }
   },
-  "devDependencies": {
-    "@babel/core": "^7.12.17",
-    "@babel/plugin-transform-modules-commonjs": "^7.13.8",
-    "@babel/preset-typescript": "^7.13.0",
-    "@socialgouv/eslint-config-typescript": "^1.57.0",
-    "@tsconfig/node14": "^1.0.0",
-    "@types/jest": "^26.0.20",
-    "eslint": "^7.19.0",
-    "jest": "^26.6.3",
-    "lint-staged": "^10.5.4",
-    "prettier": "^2.2.1",
-    "typescript": "^4.1.5"
+  "dependencies": {
+    "@douglasduteil/framework.docs.commands": ":*"
   },
   "scripts": {
     "precommit": "lint-staged",
@@ -46,7 +37,16 @@
       "yarn test --bail --findRelatedTests"
     ]
   },
-  "eslint": {
-    "extends": "@socialgouv/eslint-config-typescript"
+  "eslintConfig": {
+    "extends": "@socialgouv/eslint-config-typescript",
+    "ignorePatterns": [
+      "**/lib/**"
+    ]
+  },
+  "devDependencies": {
+    "typescript": "^4.2.3"
+  },
+  "jest": {
+    "preset": "@douglasduteil/framework.tools"
   }
 }
