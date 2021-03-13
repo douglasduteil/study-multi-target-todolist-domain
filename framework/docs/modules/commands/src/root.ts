@@ -1,9 +1,14 @@
 //
 
+import type { Argv } from "yargs";
 import yargs from "yargs";
+import { hideBin } from "yargs/helpers";
 
-export function main({ version }:{ version: string }): yargs.Argv {
-  return yargs
+export function main(
+  { version }: { version: string },
+  argv: string[] = process.argv
+): Argv {
+  return yargs(hideBin(argv))
     .usage("Usage: $0 <command> [options]")
     .version(version)
     .demandCommand(
@@ -13,5 +18,5 @@ export function main({ version }:{ version: string }): yargs.Argv {
     .recommendCommands()
     .strict()
     .alias("h", "help")
-    .alias("v", "version")
+    .alias("v", "version");
 }

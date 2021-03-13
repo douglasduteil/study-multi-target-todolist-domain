@@ -1,10 +1,17 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "extends": "@douglasduteil/framework.tools",
+  "extends": "@tsconfig/node14",
   "compilerOptions": {
-    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "sourceMap": true,
+    "moduleResolution": "Node",
+    "module": "esnext",
     "outDir": "lib",
-    "rootDir": "src"
-  },
-  "exclude": [ "lib","" ,"node_modules"]
+    "rootDir": "src",
+    "types": ["node", "jest"]
+  }
 }

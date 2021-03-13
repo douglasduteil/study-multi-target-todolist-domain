@@ -2,4 +2,4 @@
 . "$(dirname "$0")/_/husky.sh"
 
 yarn precommit
-yarn workspaces foreach precommit
+yarn workspaces foreach run precommit

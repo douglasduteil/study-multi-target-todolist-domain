@@ -10,10 +10,10 @@ import { main } from "./root";
 test("should display help", () => {
   const parseFn = jest.fn();
 
-  main({ version: "x.y.z" })
+  main({ version: "x.y.z" }, [])
     .scriptName("my-test")
     .wrap(80)
-    .parse(["add", "--help"], parseFn);
+    .parse(["--help"], parseFn);
 
   const [[error, , output]] = parseFn.mock.calls;
   expect(error).toBeUndefined();
@@ -24,4 +24,17 @@ test("should display help", () => {
       -h, --help     Show help                                             [boolean]
       -v, --version  Show version number                                   [boolean]"
   `);
+});
+
+test("should display version", () => {
+  const parseFn = jest.fn();
+
+  main({ version: "x.y.z" }, [])
+    .scriptName("my-test")
+    .wrap(80)
+    .parse(["--version"], parseFn);
+
+  const [[error, , output]] = parseFn.mock.calls;
+  expect(error).toBeUndefined();
+  expect(output).toMatchInlineSnapshot(`"x.y.z"`);
 });
