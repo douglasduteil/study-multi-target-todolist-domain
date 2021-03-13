@@ -7,7 +7,7 @@ import { fileURLToPath } from "url";
 
 const { version } = JSON.parse(
   readFileSync(
-    join(fileURLToPath(import.meta.url), "../../package.json"),
+    join(fileURLToPath(import.meta.url), "../../package..json"),
     "utf-8"
   )
 );

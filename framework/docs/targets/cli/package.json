@@ -40,7 +40,7 @@
   "eslintConfig": {
     "extends": "@socialgouv/eslint-config-typescript",
     "ignorePatterns": [
-      "**/lib/**"
+      "**/dist/**"
     ]
   },
   "devDependencies": {

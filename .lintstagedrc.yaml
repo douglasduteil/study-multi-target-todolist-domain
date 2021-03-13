@@ -1,5 +1,6 @@
 "package.json":
   - "yarn lint:package.json"
+  - "git add"
 
 "docs/cli/*":
   - "yarn --cwd docs/cli install"

@@ -3,6 +3,9 @@
   "description": ":microscope: Studying the reuse of core todolist domain functions in multiple \"end\" targets",
   "version": "1.0.0",
   "author": "Douglas Duteil <douglasduteil@gmail.com> (douglasduteil.github.io)",
+  "//-docs:cli": "yarn --cwd docs/cli",
+  "//-framework:docs": "yarn --cwd framework/docs exec yarn",
+  "//-framework:e2e": "yarn --cwd framework/e2e",
   "bugs": "https://github.com/douglasduteil/study-multi-target-todolist-domain/issues",
   "devDependencies": {
     "husky": "^5.1.3",
@@ -13,9 +16,6 @@
   "license": "WTFPL",
   "private": true,
   "repository": "douglasduteil/study-multi-target-todolist-domain.git",
-  "//-framework:e2e": "yarn --cwd framework/e2e",
-  "//-framework:docs": "yarn --cwd framework/docs exec yarn",
-  "//-docs:cli": "yarn --cwd docs/cli",
   "scripts": {
     "build": "run-p build:*",
     "build:packages": "tsc -b packages --verbose",
@@ -23,12 +23,12 @@
     "lint": "lerna run --stream --parallel lint",
     "lint:package.json": "yarn dlx syncpack format",
     "postinstall": "husky install",
+    "precommit": "lint-staged",
     "start": "lerna run --stream --parallel start",
     "test": "lerna run --stream --parallel test",
     "test_coverage": "lerna run --stream --parallel test -- --coverage",
     "watch": "run-p watch:*",
     "watch:packages": "yarn build:packages --watch --preserveWatchOutput",
-    "precommit": "lint-staged",
     "watch:target": "lerna run --stream --parallel --scope @todolist/target.* watch"
   }
 }
