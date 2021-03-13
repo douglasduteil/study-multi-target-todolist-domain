@@ -1,15 +1,15 @@
-"package.json":
+"**/package.json":
   - "yarn lint:package.json"
   - "git add"
 
-"docs/cli/*":
+"docs/cli/**/*":
   - "yarn --cwd docs/cli install"
   - "yarn --cwd docs/cli lint"
 
-"framework/docs/*":
+"framework/docs/**/*":
   - "yarn --cwd framework/docs exec yarn run precommit"
 
-"framework/e2e/*":
+"framework/e2e/**/*":
   - "yarn workspace @douglasduteil/framework.e2e build"
   # Run framework/e2e dependencies
   - "yarn --cwd docs/cli"
