@@ -1,6 +1,10 @@
 "docs/cli/*":
   - "yarn --cwd docs/cli install"
   - "yarn --cwd docs/cli lint"
+
+"framework/docs/*":
+  - "yarn --cwd framework/docs exec yarn run precommit"
+
 "framework/e2e/*":
   - "yarn workspace @douglasduteil/framework.e2e build"
   # Run framework/e2e dependencies

@@ -5,12 +5,13 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
+    "precommit": "yarn workspaces foreach run precommit",
     "lint": "yarn workspaces foreach run lint",
+    "test": "yarn workspaces foreach run test",
     "docs": "dd-frameword-docs docs/features"
   },
   "devDependencies": {
-    "@douglasduteil/framework.docs.cli": "link:./targets/cli",
-    "lint-staged": "^10.5.4"
+    "@douglasduteil/framework.docs.cli": "link:./targets/cli"
   },
   "workspaces": [
     "modules/*",
