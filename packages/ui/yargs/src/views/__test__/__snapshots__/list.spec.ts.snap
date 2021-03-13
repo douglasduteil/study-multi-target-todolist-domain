@@ -1,8 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`should return list of 0 todos 1`] = `""`;
-
-exports[`should return list of one foo todo 1`] = `
-"(42) ☐ foo 
-Created 49 years ago"
-`;

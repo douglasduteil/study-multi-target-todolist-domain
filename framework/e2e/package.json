@@ -1,0 +1,16 @@
+{
+  "name": "@douglasduteil/framework.e2e",
+  "description": "Todolist Docs",
+  "version": "1.0.0",
+  "license": "WTFPL",
+  "private": true,
+  "scripts": {
+    "precommit": "lint-staged"
+  },
+  "dependencies": {
+    "codeceptjs": "^3.0.5"
+  },
+  "workspaces": [
+
+  ]
+}

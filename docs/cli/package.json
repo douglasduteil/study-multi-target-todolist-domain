@@ -1,0 +1,13 @@
+{
+  "name": "@douglasduteil/todolist.docs.cli",
+  "description": "Todolist Docs",
+  "version": "1.0.0",
+  "scripts": {
+    "precommit": "lint-staged"
+  },
+  "devDependencies": {
+    "@douglasduteil/framework.e2e": "link:../framework/e2e",
+    "codeceptjs": "^3.0.5",
+    "eslint": "^7.22.0"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "@douglasduteil/eslint-config",
+  "description": "Framework eslint-config",
+  "version": "1.0.0",
+  "license": "WTFPL",
+  "private": true,
+  "peerDependencies": {
+    "eslint": "*",
+    "typescript": "*"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@socialgouv/eslint-config-typescript": "^1.57.0"
+  },
+  "devDependencies": {
+    "@types/eslint": "^7",
+    "eslint": "^7.22.0",
+    "typescript": "^4.2.3"
+  }
+}

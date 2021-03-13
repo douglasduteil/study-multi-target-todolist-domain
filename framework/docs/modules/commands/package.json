@@ -1,0 +1,50 @@
+{
+  "name": "@douglasduteil/framework.docs.commands",
+  "description": "Framework docs commands",
+  "license": "WTFPL",
+  "private": true,
+  "version": "1.0.0",
+  "babel": {
+    "env": {
+      "test": {
+        "presets": [
+          "@babel/preset-typescript"
+        ],
+        "plugins": [
+          "@babel/plugin-transform-modules-commonjs"
+        ]
+      }
+    }
+  },
+  "devDependencies": {
+    "@douglasduteil/eslint-config-framework": "link:../../../eslint-config",
+    "@douglasduteil/framework.tools": "link:../../../tools",
+    "eslint": "^7.19.0",
+    "jest": "^26.6.3",
+    "typescript": "^4.1.5"
+  },
+  "scripts": {
+    "precommit": "lint-staged",
+    "build": "tsc -",
+    "lint": "eslint src/index.ts",
+    "lint:fix": "yarn lint --fix",
+    "prepush": "yarn lint && yarn test",
+    "test": "jest",
+    "watch": "yarn build --watch --preserveWatchOutput"
+  },
+  "sideEffects": false,
+  "lint-staged": {
+    "src/*.ts": [
+      "yarn lint --fix",
+      "git add",
+      "yarn test --bail --findRelatedTests"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "../../../eslint-config",
+    "ignorePatterns": ["**/lib/**"]
+  },
+  "jest": {
+    "preset": "@douglasduteil/framework.tools"
+  }
+}
